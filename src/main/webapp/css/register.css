@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1{
+    text-align: center;
+    font-size: 25px;
+
+}
+  a{
+    color:#de0c0c;
+    text-decoration:none;
+  }
+  
+a:hover{
+    color:  #8A0707;
+    text-decoration: underline;
+}
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color:#de0c0c;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+select,
+textarea {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #de0c0c ;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #8A0707;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+}
+
+textarea {
+    resize: vertical;
+}

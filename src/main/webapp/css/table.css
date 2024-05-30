@@ -1,0 +1,26 @@
+.card-custom {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.card-custom .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-custom .card-body .left,
+.card-custom .card-body .right {
+    flex: 1;
+    padding: 10px;
+}
+
+.card-custom .card-body .left .card-title{
+      text-transform: capitalize;	
+}
+.card-custom .card-body .right {
+    border-left: 1px solid #ddd;
+}
+.card-custom .card-body i {
+    margin-right: 5px;
+}
