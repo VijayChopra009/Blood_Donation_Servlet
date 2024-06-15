@@ -27,7 +27,7 @@ public class VerifyCodeJSP extends HttpServlet {
 	 if(code.equals(user.getCode())) {
 		 out.print("<h3 style='color:green'>Verification Done</h3>");
 		 HttpSession session1= req.getSession();
-		 res.sendRedirect("login.html");
+		 res.sendRedirect("hospitallogin.html");
 	 }else{
 		 out.print("<h3 style='color:red'>Invalid Code !</h3>");
 	 }

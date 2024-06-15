@@ -1,13 +1,4 @@
-/* =======================================================================
-Template Name: Youtubers
-Author:  SmartEye Technologies
-Author URI: www.smarteyeapps.com
-Version: 1.0
-coder name:Prabin Raja
-Description: This Template is created for Youtubers
-======================================================================= */
-/* ===================================== Import Less ================================== */
-/* ===================================== Basic CSS ==================================== */
+
 * {
   margin: 0px;
   padding: 0px;
@@ -404,6 +395,7 @@ header .nav-col .navbar-nav li {
   font-weight: 600;
 }
 
+
 @media screen and (max-width: 767px) {
   .navbar {
     padding: 0px;
@@ -428,9 +420,10 @@ header .nav-col .navbar-nav li {
 }
 
 /* ===================================== Slider CSS ================================== */
+
 .slider-detail .carousel-caption {
   text-align: center;
-  top: 120px;
+  top: 60px;
 }
 
 .slider-detail .carousel-caption h5 {
@@ -458,7 +451,7 @@ header .nav-col .navbar-nav li {
 
 .slider-detail .vbh .btn {
   padding: 8px 20px;
-  margin-top: 40px;
+  margin-top: 0px;
   width: 250px;
   margin-left: 10px;
   font-size: 20px;
@@ -470,7 +463,7 @@ header .nav-col .navbar-nav li {
 
 .slider-detail .vdg-cur {
   color: #FFF;
-  padding-top: 70px;
+  padding-top: 10px;	
 }
 
 @media screen and (max-width: 1180px) {

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import dao.Dao;
 
-public class RegisterBean implements  Serializable{
+public class DonorRegisterBean implements  Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String firstname;
@@ -21,7 +21,7 @@ public class RegisterBean implements  Serializable{
 	private int pincode;
 	private String location;
 	
-	public RegisterBean() {
+	public DonorRegisterBean() {
 		
 	}
 	

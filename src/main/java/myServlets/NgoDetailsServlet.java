@@ -11,33 +11,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.LoginBean;
+import beans.NgoDetailBean;
 
-
-//@WebServlet(name = "someThing", urlPatterns = {"/login"})
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/ngo")
+public class NgoDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-	
 		res.setContentType("text/html");
-		PrintWriter out =res.getWriter();
+		PrintWriter out=res.getWriter();
 		out.print("<html><body>");
-		LoginBean lb = new LoginBean();
-		lb.setEmail(req.getParameter("email"));
-		lb.setPassword(req.getParameter("password"));
-		
-		if(lb.lverify()) {
+		NgoDetailBean nb= new NgoDetailBean();
+		nb.setDate(req.getParameter("date"));
+		nb.setAddress(req.getParameter("address"));
+		nb.setCity(req.getParameter("city"));
+		nb.setPincode(Integer.parseInt(req.getParameter("pincode")));
+		nb.setState(req.getParameter("state"));
+		nb.setContact(Long.parseLong(req.getParameter("contact")));
+		nb.setDetails(req.getParameter("details"));
+		if(nb.ngoverify()) {
 			HttpSession session = req.getSession();
-			session.setAttribute("email",lb.getEmail());
 			RequestDispatcher rd = req.getRequestDispatcher("/index.html");
-			rd.forward(req,res);
+			rd.include(req,res);
 		}else {
-			out.print("<center><h3 style='color:red'>Invalid email and password! <h3></center> ");
-			RequestDispatcher rd = req.getRequestDispatcher("/login.html");
+			out.print("<center><h3 style='color:red'>Error Occured <h3></center> ");
+			RequestDispatcher rd = req.getRequestDispatcher("/ngo.html");
 			rd.include(req,res);
 		}
 		out.print("</body></html>");
-	}
-
+		}
+		
 }
