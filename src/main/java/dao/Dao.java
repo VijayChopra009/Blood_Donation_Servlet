@@ -217,7 +217,7 @@ public class Dao {
 	////////////////////////// ngo camp//////////////////////////
 	public boolean  camps(NgoDetailBean nb) {
 		boolean value = false;
-		int x = 0, x1 = 0;
+		int x = 0;
 		try {
 			Connection conn = MyConnection.getConnection();
 			PreparedStatement ps = conn.prepareStatement("insert into ngocamp values(?,?,?,?,?,?,?)");

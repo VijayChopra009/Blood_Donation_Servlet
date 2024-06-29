@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.DonorRegisterBean;
 
@@ -20,10 +21,11 @@ public class DonorRegisterServlet extends HttpServlet {
 		res.setContentType("text/html");
 		PrintWriter out = res.getWriter();
 		out.print("<html><body>");
+		HttpSession session=req.getSession();
 		DonorRegisterBean rb = new DonorRegisterBean();
 		rb.setFirstname(req.getParameter("firstname").trim());
 		rb.setLastname(req.getParameter("lastname").trim());
-		rb.setEmail(req.getParameter("email").trim());
+		rb.setEmail((String)session.getAttribute("emailverify"));
 		rb.setPassword(req.getParameter("password"));
 		rb.setMobno(Long.parseLong(req.getParameter("mobno").trim()));
 		rb.setGender(req.getParameter("gender"));
@@ -36,9 +38,11 @@ public class DonorRegisterServlet extends HttpServlet {
 		rb.setLocation(req.getParameter("live_loc").trim());
 		
 		if(rb.registerverify()) {
+			HttpSession session1 = req.getSession();
+			session1.setAttribute("emailcode",rb.getEmail());
 			out.print("<h3 style='color:green'>Registration successfull ...</h3>");
-			RequestDispatcher rd =req.getRequestDispatcher("/donorlogin.html");
-			rd.include(req, res);
+			RequestDispatcher rd = req.getRequestDispatcher("/donorlogin.html");
+			rd.include(req,res);
 		}else {
 			out.print("<br><h3 style='color:red'>Invalid Data inserted registeration not Completed !</h3>");
 			RequestDispatcher rd =req.getRequestDispatcher("/donorregister.html");

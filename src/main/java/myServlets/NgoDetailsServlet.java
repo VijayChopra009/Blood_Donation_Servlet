@@ -9,36 +9,33 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import beans.NgoDetailBean;
 
 @WebServlet("/ngo")
 public class NgoDetailsServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		res.setContentType("text/html");
-		PrintWriter out=res.getWriter();
-		out.print("<html><body>");
-		NgoDetailBean nb= new NgoDetailBean();
-		nb.setDate(req.getParameter("date"));
-		nb.setAddress(req.getParameter("address"));
-		nb.setCity(req.getParameter("city"));
-		nb.setPincode(Integer.parseInt(req.getParameter("pincode")));
-		nb.setState(req.getParameter("state"));
-		nb.setContact(Long.parseLong(req.getParameter("contact")));
-		nb.setDetails(req.getParameter("details"));
-		if(nb.ngoverify()) {
-			HttpSession session = req.getSession();
-			RequestDispatcher rd = req.getRequestDispatcher("/index.html");
-			rd.include(req,res);
-		}else {
-			out.print("<center><h3 style='color:red'>Error Occured <h3></center> ");
-			RequestDispatcher rd = req.getRequestDispatcher("/ngo.html");
-			rd.include(req,res);
-		}
-		out.print("</body></html>");
-		}
-		
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setContentType("text/html");
+        PrintWriter out = res.getWriter();
+        NgoDetailBean nb = new NgoDetailBean();
+        nb.setDate(req.getParameter("date"));
+        nb.setAddress(req.getParameter("address"));
+        nb.setCity(req.getParameter("city"));
+        nb.setPincode(Integer.parseInt(req.getParameter("pincode")));
+        nb.setState(req.getParameter("state"));
+        nb.setContact(Long.parseLong(req.getParameter("contact")));
+        nb.setDetails(req.getParameter("details"));
+
+        if (nb.ngoverify()) {
+            res.sendRedirect("ngoconfirm.jsp");
+        } else {
+            req.setAttribute("errorMessage", "Error Occurred. Please try again.");
+            RequestDispatcher rd = req.getRequestDispatcher("/ngo.html");
+            rd.forward(req, res);
+        }
+    }
+
+   
 }

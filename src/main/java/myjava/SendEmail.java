@@ -42,7 +42,7 @@ public class SendEmail {
 			});
 
 			Message mess = new MimeMessage(session);
-			mess.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
+			mess.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
 			mess.setSubject("User Email Verification ");
 			mess.setText("Registrated Successfully. Please verify your account using this code  " + user.getCode());
 

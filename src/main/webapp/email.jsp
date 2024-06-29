@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Email Verification</title>
 <style>
-body {
+    body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         display: flex;
@@ -21,8 +23,8 @@ body {
         margin:50px auto;
     }
     h2 {
-        margin-bottom:20px;
-        color:#4CAF50;
+        margin-bottom: 20px;
+        color: #333;
     }
     input[type="text"], input[type="email"] {
         width: calc(100% - 22px);
@@ -48,11 +50,10 @@ body {
 </style>
 </head>
 <body>
-
-  <form action="verifycode" method="post">
-   <h2> Please Enter Verification Code </h2>
-   <input type="text" placeholder="Email Verification code"  name="authcode">
-   <input type="submit" value="Verfiy">
-  </form>
+<form action="verify" method="post">
+  <h2>Please Verify Your Email</h2>
+  <input id="email" name="email" type="email" required>
+  <input type="submit" value="Verify Email">
+</form>
 </body>
 </html>

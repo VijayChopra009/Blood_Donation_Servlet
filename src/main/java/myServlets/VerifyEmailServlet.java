@@ -31,6 +31,7 @@ public class VerifyEmailServlet extends HttpServlet {
 			
 			if(test) {
 				HttpSession session=req.getSession();
+				session.setAttribute("emailverify",email);
 				session.setAttribute("authcode",user);
 				res.sendRedirect("verify.html");
 			}
