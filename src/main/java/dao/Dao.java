@@ -70,6 +70,7 @@ public class Dao {
 				System.out.println("successfully inserted into donor table  " + x1);
 				if (x1 != 0) {
 					value = true;
+				
 					return value;
 				}
 			}
@@ -88,8 +89,6 @@ public class Dao {
 			PreparedStatement ps = conn.prepareStatement("select * from donorDetails where PINCODE=? and bloodgroup=?");
 			ps.setInt(1, gb.getPincode());
 			ps.setString(2, gb.getBloodg());
-			System.out.println(gb.getPincode());
-			System.out.println(gb.getBloodg());
 			ResultSet rs = ps.executeQuery();
 			System.out.println("getting by pincode.......");
 			while (rs.next()) {
@@ -108,6 +107,7 @@ public class Dao {
 				al.add(gb);
 			}
 			System.out.println("added to list successfullys");
+	
 			return al;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -134,8 +134,7 @@ public class Dao {
 			x = ps.executeUpdate();
 			System.out.println("Successfully inserted into hospitalregister table  " + x);
 			if (x != 0) {
-				PreparedStatement ps1 = conn
-						.prepareStatement("insert into hospitallogin values(?,?,?,0,0,0,0,0,0,0,0,?)");
+				PreparedStatement ps1 = conn.prepareStatement("insert into hospitallogin values(?,?,?,0,0,0,0,0,0,0,0,?)");
 				ps1.setInt(1, rb.getId());
 				ps1.setString(2, rb.getEmail());
 				ps1.setString(3, rb.getPassword());
@@ -145,6 +144,8 @@ public class Dao {
 				if (x1 != 0) {
 					value = true;
 					return value;
+				}else {
+					conn.rollback();
 				}
 			}
 		} catch (Exception e) {
@@ -178,6 +179,7 @@ public class Dao {
 				gb.setName(rs.getString(12));
 				value = true;
 			}
+			
 			return value;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -206,6 +208,7 @@ public class Dao {
 	        if (x != 0) {
 	        	 System.out.println("a+ = " +uh.getA_positive());
 	 	        System.out.println("a- = " +uh.getA_positive());
+	 	      
 	            value = true;
 	        }
 	    } catch (Exception e) {

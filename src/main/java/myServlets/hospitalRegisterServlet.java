@@ -21,7 +21,7 @@ public class hospitalRegisterServlet extends HttpServlet {
 		PrintWriter out =res.getWriter();
 		out.print("<html><body>");
 		HospitalRegisterBean rb=new HospitalRegisterBean();
-		rb.setId(Integer.parseInt(req.getParameter("id").trim()));
+		rb.setId(Integer.parseInt(req.getParameter("id")));
 		rb.setName(req.getParameter("hospitalName").trim());
 		rb.setEmail(req.getParameter("email").trim());
 		rb.setPassword(req.getParameter("password"));

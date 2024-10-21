@@ -1,45 +1,69 @@
-/////////////// donor table//////////////////
-CREATE TABLE donorDetails (
-    FirstName VARCHAR2(50),
-    LastName VARCHAR2(50),
-    Email VARCHAR2(100),
-    Password VARCHAR2(50),
-    MobNo VARCHAR2(15),
-    Gender VARCHAR2(10),
-    Age NUMBER,
-    BloodGroup VARCHAR2(5),
-    City VARCHAR2(50),
-    Address VARCHAR2(255),
-    State VARCHAR2(50)
+
+///////////////////////////////// mysql database changes///////////////////////////////
+---------------------donor tables-----------------------
+create table donor(
+email varchar(150) unique not null,
+password varchar(100) 
+)
+
+
+
+create table donordetails(
+id int auto_increment unique not null,
+firstname varchar(50) not null,
+lastname varchar(50) not null,
+email varchar(150) not null unique,
+password varchar(150),
+mobno varchar(100) not null unique,
+gender varchar(50),
+age int,
+bloodgroup varchar(30),
+city varchar(50),
+address varchar(255),
+state varchar(50),
+pincode varchar(50),
+live_loc varchar(255)
 );
 
-create table donor(email varchar(255),password varchar(255));
-///////////////////hospital tables////////////////////////////
-CREATE TABLE hospitalregister (
+
+-------------------- hospital tables ----------------------------
+create table hospitalregister(
+id int auto_increment not null unique,
+name varchar(150)  not null unique,
+email varchar(150) not null unique,
+password varchar(100) ,
+mobno varchar(50) unique not null,
+state varchar(100),
+city varchar(100),
+pincode varchar(30),
+address varchar(255)
+);
+
+create table hospitallogin(
 id int,
-    name VARCHAR2(100),
-    email VARCHAR2(100) PRIMARY KEY,
-    password VARCHAR2(100),
-    mobno VARCHAR2(15) UNIQUE,
-    state VARCHAR2(100),
-    city VARCHAR2(100),
-    pincode VARCHAR2(10),
-    address VARCHAR2(255)
+email varchar(150) unique not null,
+password varchar(100),
+A_POSITIVE int,
+A_NEGATIVE int,
+B_POSITIVE int,
+B_NEGATIVE int,
+AB_POSITIVE int,
+AB_NEGATIVE int,
+O_POSITIVE int,
+O_NEGATIVE int,
+name varchar(150)
 );
 
-CREATE TABLE hospitallogin (
-    ID NUMBER,
-    Email VARCHAR2(255) ,
-    Password VARCHAR2(255) ,
-    A_Positive NUMBER DEFAULT 0,
-    A_Negative NUMBER DEFAULT 0,
-    B_Positive NUMBER DEFAULT 0,
-    B_Negative NUMBER DEFAULT 0,
-    AB_Positive NUMBER DEFAULT 0,
-    AB_Negative NUMBER DEFAULT 0,
-    O_Positive NUMBER DEFAULT 0,
-    O_Negative NUMBER DEFAULT 0
-);
+----------------------ngo camp table-------------------
 
-///// ngo table////////
-select * from ngocamp;
+create table ngocamp(
+camp_date varchar(100),
+address varchar(255),
+	city varchar(100),
+    pincode varchar(40),
+    state varchar(50),
+    contact varchar(50),
+    details varchar(255)
+
+
+);

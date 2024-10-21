@@ -22,7 +22,7 @@ public class SendEmail {
 	public boolean sendEmail(EmailBean user) {
 		boolean test = false;
 
-		String toEmail = user.getEmail();		String fromEmail="vijaychopra627@gmail.com";		String password="aunp wqnz ygsw tbev";
+		String toEmail = user.getEmail();		String fromEmail="vijaychopra627@gmail.com";		String password="ioan kjem icei rocu";
 		
 		
 
@@ -32,6 +32,7 @@ public class SendEmail {
 			pr.put("mail.smtp.starttls.enable", "true");
 			pr.put("mail.smtp.host", "smtp.gmail.com");
 			pr.put("mail.smtp.port", "587");
+			pr.put("mail.smtp.ssl.trust","smtp.gmail.com");
 
 			// session
 			Session session = Session.getInstance(pr, new Authenticator() {
